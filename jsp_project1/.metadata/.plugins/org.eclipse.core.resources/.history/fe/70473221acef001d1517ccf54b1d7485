@@ -1,0 +1,21 @@
+package service;
+
+import domain.ProductVO;
+import rapository.DAO;
+import rapository.ProductDAO;
+
+public class ProductService implements Service {
+	private DAO dao;
+	
+	public ProductService() {
+		dao = new ProductDAO();
+	}
+	@Override
+	public int register(ProductVO pvo) {
+		// JSP에서 받은 객체 PVO를 가지고 DB에 넣어달라고 요청 dao
+		
+		System.out.println(">> register service 진입!!");
+		return dao.insert(pvo);
+	}
+
+}

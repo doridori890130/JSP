@@ -1,0 +1,5 @@
+package rapository;
+
+public interface DAO {
+
+}

@@ -1,0 +1,44 @@
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="model.PersonVO" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<%
+		//personvo 객체를 이용하여 list에 여러명을 추가(5명)
+		
+		ArrayList<PersonVO> pvoList = new ArrayList<>();
+		pvoList.add(new PersonVO("이수",40));
+		pvoList.add(new PersonVO("이석훈",5));
+		pvoList.add(new PersonVO("박효신",15));
+		pvoList.add(new PersonVO("고윤정",25));
+		pvoList.add(new PersonVO("한가인",30));
+		
+		session.setAttribute("pvo", pvoList);
+	%>
+	
+	<!-- 테이블을 생성하여 -->
+	<table border="1">
+		<thead>
+		<tr>
+			<td>번호</td>
+			<td>이름</td>
+			<td>나이</td>
+			<td>연령대</td>
+		</tr>
+		</thead>
+		<tbody>
+			<tr>
+			<td></td>
+			</tr>
+		</tbody>
+		
+	</table>
+</body>
+</html>
