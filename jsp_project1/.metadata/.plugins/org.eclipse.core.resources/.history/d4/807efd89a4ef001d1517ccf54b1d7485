@@ -1,5 +1,0 @@
-package rapository;
-
-public class ProductDAO implements DAO {
-
-}

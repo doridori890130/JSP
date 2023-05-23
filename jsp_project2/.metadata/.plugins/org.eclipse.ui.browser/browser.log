@@ -1,0 +1,5 @@
+
+5월 23, 2023 15:56:28.872 NEW SESSION
+5월 23, 2023 15:56:28.872 [5148:7340:0523/155628.871:ERROR:interface_endpoint_client.cc(696)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 23, 2023 15:56:28.872 [5148:7340:0523/155628.871:ERROR:interface_endpoint_client.cc(696)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 23, 2023 17:25:23.204 [8612:10352:0523/172523.204:ERROR:interface_endpoint_client.cc(696)] Message 1 rejected by interface blink.mojom.WidgetHost
