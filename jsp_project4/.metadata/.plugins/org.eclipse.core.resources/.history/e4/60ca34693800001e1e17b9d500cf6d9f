@@ -1,0 +1,31 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+div{
+	text-align: center;
+}
+</style>
+<meta charset="UTF-8">
+<title>Modify Page</title>
+</head>
+<body>
+<div>
+<h1>Modify Page</h1>
+
+<form action="/mem/edit" method="post">
+ID : <input type="text" name="id" value="${ses.id }" readonly="readonly"><br> <br>
+PW : <input type="text" name ="password" value="${ses.password }"> <br> <br>
+email : <input type="text" name="email" value="${ses.email }"><br> <br>
+age : <input type="text" name="age" value="${ses.age }"><br> <br>
+<input type="hidden" name="reg_date" value="${ses.reg_date }"><br> <br>
+<input type="hidden" name="last_login" value="${ses.last_login }">
+<button type="submit">수정완료</button><br> <br>
+</form>
+
+</div>
+
+</body>
+</html>

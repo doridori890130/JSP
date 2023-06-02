@@ -1,0 +1,9 @@
+package repository;
+
+import domain.MemberVo;
+
+public interface MemberDAO {
+
+	int register(MemberVo mvo);
+
+}

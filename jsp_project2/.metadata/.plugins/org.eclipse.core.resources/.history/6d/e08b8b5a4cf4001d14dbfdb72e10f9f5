@@ -1,8 +1,0 @@
-package controller;
-
-import javax.servlet.annotation.WebServlet;
-
-@WebServlet("/brd/*")
-public class BoardController {
-	private static final long serialVersionUTD = 1L;
-}

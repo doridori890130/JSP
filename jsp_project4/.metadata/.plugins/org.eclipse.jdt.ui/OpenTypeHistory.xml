@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=jsp_project/src\/main\/java&lt;service{MemberService.java[MemberService" modifiers="513" timestamp="1685495569260"/>
+    <typeInfo handle="=jsp_project/src\/main\/java&lt;repository{MemberDAO.java[MemberDAO" modifiers="513" timestamp="1685495601939"/>
+    <typeInfo handle="=jsp_project/src\/main\/java&lt;service{BoardService.java[BoardService" modifiers="513" timestamp="1685516488161"/>
+    <typeInfo handle="=jsp_project/src\/main\/java&lt;repository{BoardDAO.java[BoardDAO" modifiers="513" timestamp="1685516516034"/>
+    <typeInfo handle="=jsp_project/src\/main\/java&lt;service{CommentService.java[CommentService" modifiers="513" timestamp="1685504575067"/>
+    <typeInfo handle="=jsp_project/D:\/_jsp_workspace\/eclipse-jee-2021-09-R-win32-x86_64\/eclipse\/plugins\/org.eclipse.justj.openjdk.hotspot.jre.full.win32.x86_64_16.0.2.v20210721-1149\/jre\/lib\/jrt-fs.jar`java.xml=/module=/true=/=/javadoc_location=/https:\/\/docs.oracle.com\/en\/java\/javase\/16\/docs\/api\/=/&lt;javax.xml.stream.events(Comment.class[Comment" modifiers="1537" timestamp="1626835900000"/>
+    <typeInfo handle="=jsp_project/src\/main\/java&lt;repository{CommentDAO.java[CommentDAO" modifiers="513" timestamp="1685504597114"/>
+</typeInfoHistroy>
