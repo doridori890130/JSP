@@ -1,0 +1,16 @@
+
+5월 23, 2023 15:56:28.872 NEW SESSION
+5월 23, 2023 15:56:28.872 [5148:7340:0523/155628.871:ERROR:interface_endpoint_client.cc(696)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 23, 2023 15:56:28.872 [5148:7340:0523/155628.871:ERROR:interface_endpoint_client.cc(696)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 23, 2023 17:25:23.204 [8612:10352:0523/172523.204:ERROR:interface_endpoint_client.cc(696)] Message 1 rejected by interface blink.mojom.WidgetHost
+
+5월 25, 2023 10:49:58.869 NEW SESSION
+5월 25, 2023 10:49:58.869 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+5월 25, 2023 11:03:50.299 [9672:944:0525/110350.299:ERROR:interface_endpoint_client.cc(696)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 25, 2023 11:03:50.299 [9672:944:0525/110350.299:ERROR:interface_endpoint_client.cc(696)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 25, 2023 11:03:50.299 [9672:944:0525/110350.299:ERROR:interface_endpoint_client.cc(696)] Message 1 rejected by interface blink.mojom.WidgetHost
+5월 25, 2023 11:16:31.671 [libprotobuf ERROR ..\..\third_party\protobuf\src\google\protobuf\message_lite.cc:133] Can't parse message of type "safe_browsing.ClientDownloadRequest" because it is missing required fields: (cannot determine missing fields for lite message)
+5월 25, 2023 12:12:49.02 [9672:944:0525/121249.002:ERROR:interface_endpoint_client.cc(696)] Message 0 rejected by interface blink.mojom.WidgetHost
+5월 25, 2023 12:12:58.280 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+5월 25, 2023 14:12:45.56 [9672:944:0525/141245.056:ERROR:device_event_log_impl.cc(222)] [14:12:45.056] Bluetooth: bluetooth_adapter_winrt.cc:1058 Getting Default Adapter failed.
+5월 25, 2023 17:25:06.608 [9672:944:0525/172506.608:ERROR:sharing_service.cc(252)] Device un-registration failed with fatal error
