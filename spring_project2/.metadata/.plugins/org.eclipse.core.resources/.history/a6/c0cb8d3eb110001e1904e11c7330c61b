@@ -1,0 +1,27 @@
+package com.myweb.www.config;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+
+import com.zaxxer.hikari.HikariConfig;
+
+public class RootConfig {
+	
+	@Autowired
+	ApplicationContext applicationContext;
+	
+	//DB 설정
+	//log4jdbc=log4j2 라이브러리 사용시.
+	//Driver "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+	
+	@Bean
+	public DataSource dataSource() {
+		HikariConfig hikariconfig = new HikariConfig();
+		
+		hikariconfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
+		hikariconfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/springtestdb");
+	}
+}

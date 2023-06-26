@@ -1,0 +1,16 @@
+package com.myproject.www.repository;
+
+import java.util.List;
+
+import com.myproject.www.domain.BoardVO;
+import com.myproject.www.domain.PagingVO;
+
+public interface BoardDAO {
+
+	int insert(BoardVO bvo);
+
+	List<BoardVO> getlist(PagingVO pvo);
+
+	int gettotalcount(PagingVO pvo);
+
+}

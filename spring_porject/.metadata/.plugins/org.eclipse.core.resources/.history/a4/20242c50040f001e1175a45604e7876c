@@ -1,0 +1,5 @@
+package com.myproject.www.domain;
+
+public class CommentVO {
+
+}

@@ -1,0 +1,25 @@
+package com.myproject.www.domain;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
+@Setter
+@Getter
+public class PagingVO {
+	private int pageNo;
+	private int qty;
+	
+	private String type;
+	private String keyword;
+	
+	public PagingVO() {
+		this(1,10);
+	}
+	
+}

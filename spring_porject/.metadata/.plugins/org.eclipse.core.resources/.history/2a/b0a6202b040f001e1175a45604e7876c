@@ -1,0 +1,11 @@
+package com.myproject.www.repository;
+
+import com.myproject.www.domain.CommentVO;
+
+public interface CommentDAO {
+
+	int register(CommentVO cvo);
+
+	int register(CommentVO cvo);
+
+}

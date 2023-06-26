@@ -1,0 +1,36 @@
+package com.myproject.www.controller;
+
+import javax.inject.Inject;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.myproject.www.service.UserService;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/user/*")
+public class UserController {
+	
+	@Inject
+	private UserService usv;
+	
+	@Inject 
+	BCryptPasswordEncoder passwordencoder;
+	 
+	
+	@GetMapping("/signup")
+	public String index(Model m) {
+		log.info("home 접근완료");
+		return "/user/signup";
+	}
+	
+	
+	
+	
+}

@@ -1,0 +1,72 @@
+package com.myproject.www.service;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import com.myproject.www.domain.BoardDTO;
+import com.myproject.www.domain.BoardVO;
+import com.myproject.www.domain.PagingVO;
+import com.myproject.www.repository.BoardDAO;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Service
+public class BoardServiceImpl implements BoardService {
+	
+	@Inject
+	private BoardDAO bdao;
+
+	@Override
+	public int register(BoardVO bvo) {
+		log.info("board register 서비스!");
+		
+		return bdao.insert(bvo);
+	}
+
+	
+
+	@Override
+	public int getTotalCount(PagingVO pvo) {
+		log.info("board TCOUNT 서비스!");
+		return bdao.gettotalcount(pvo);
+	}
+
+
+
+	@Override
+	public List<BoardVO> getlist(PagingVO pvo) {
+		
+		return bdao.selectBoardListPaging(pvo);
+	}
+
+
+
+	@Override
+	public BoardVO getDetail(int bno) {
+		
+		return bdao.getDetail(bno);
+	}
+
+
+
+	@Override
+	public int readCount(int bno) {
+		// TODO Auto-generated method stub
+		return bdao.readCount(bno);
+	}
+
+
+
+	@Override
+	public BoardDTO getDetailFile(int bno) {
+		log.info(">>>> detail File in");
+		BoardDTO bdto = new BoardDTO();
+		bdto.setBvo(bdao.getDetail(bno)); // bvo 호출
+		bdto.setFlist(fdao.getFileList(bno)); // fList 호출
+		return bdto;
+	}
+}

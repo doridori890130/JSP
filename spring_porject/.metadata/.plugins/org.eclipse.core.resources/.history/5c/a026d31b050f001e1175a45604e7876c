@@ -1,0 +1,9 @@
+package com.myproject.www.service;
+
+import com.myproject.www.domain.CommentVO;
+
+public interface CommentService {
+
+	int register(CommentVO cvo);
+
+}

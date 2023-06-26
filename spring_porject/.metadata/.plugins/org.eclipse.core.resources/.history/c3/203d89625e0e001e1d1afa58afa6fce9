@@ -1,0 +1,29 @@
+package com.myproject.www.controller;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.myproject.www.service.BoardService;
+
+import lombok.extern.slf4j.Slf4j;
+
+@RequestMapping("/board/*")
+@Slf4j
+@Controller
+public class BoardController {
+
+	@Inject
+	private BoardService bsv;
+	
+	@GetMapping("/register")
+	public String registerget(Model m) {
+		return "/board/register";
+	}
+	
+	
+	
+}

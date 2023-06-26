@@ -1,0 +1,13 @@
+----06.16---- 유저 테이블생성
+ -user table
+   id,pw,email,home,age,reg_date
+   
+create table user(
+id varchar(100) not null,
+pw varchar(100) not null,
+name varchar(100),
+email varchar(100),
+home varchar(100),
+age int,
+reg_date datetime default now(),
+primary key (id));

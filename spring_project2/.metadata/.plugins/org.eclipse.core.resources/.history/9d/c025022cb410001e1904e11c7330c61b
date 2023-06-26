@@ -1,0 +1,72 @@
+package com.myweb.www.config;
+
+import javax.sql.DataSource;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
+
+@ComponentScan(basePackages= {"com.myweb.www"})
+@MapperScan(basePackages = {"com.myweb.www.repository"})
+@Configuration
+public class RootConfig {
+	
+	@Autowired
+	ApplicationContext applicationContext;
+	
+	//DB 설정
+	//log4jdbc=log4j2 라이브러리 사용시.
+	//Driver "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+	
+	@Bean
+	public DataSource dataSource() {
+		HikariConfig hikariconfig = new HikariConfig();
+		
+		hikariconfig.setDriverClassName("net.sf.log4jdbc.sql.jdbcapi.DriverSpy");
+		hikariconfig.setJdbcUrl("jdbc:log4jdbc:mysql://localhost:3306/springtestdb");
+		hikariconfig.setUsername("springuser");
+		hikariconfig.setPassword("mysql");
+		hikariconfig.setMinimumIdle(5); // 최소 유효 커넥션 수
+		
+		hikariconfig.setConnectionTestQuery("SELECT now()"); // test 쿼리
+		hikariconfig.setPoolName("springHikariCP");
+		
+		// 추가되는 부분
+		// cache 사용 여부에 대한 설정
+		hikariconfig.addDataSourceProperty("dataSource.cachePrepStmts", "true");
+		// mysql 드라이브가 연결 당 cache 할 statement 의 수에관한 설정 기본 25, 200~500 권장사항
+		hikariconfig.addDataSourceProperty("dataSource.prepStmtCacheSize", "200");
+		// cache 할 sql 구문의 최대 길이
+		hikariconfig.addDataSourceProperty("dataSource.prepStmtCacheLimit", "true");
+		// 서버에서 지원받는 설정이 있다면 가능할지에 대한 부분 설정
+		hikariconfig.addDataSourceProperty("dataSource.useServerPrepStmts", "true");
+		
+		HikariDataSource hikariDataSource = new HikariDataSource();
+		return hikariDataSource;
+	
+	}
+	
+	@Bean
+	public SqlSessionFactory sqlSessionFactory() {
+		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
+		sqlSessionFactoryBean.setDataSource(dataSource());
+		//설정사항에 대한 경로 설정
+		sqlSessionFactoryBean.setConfigLocation(
+				applicationContext.getResource("classpath:/MybatisConfig.xml"));
+		sqlSessionFactoryBean.setMapperLocations(
+				applicationContext.getResources("classpath:/mappers/*.xml");
+				);
+		
+		return (SqlSessionFactory)sqlSessionFactoryBean.getObject();
+		
+	}
+	
+}

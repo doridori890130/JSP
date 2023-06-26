@@ -1,0 +1,25 @@
+package com.myproject.www.controller;
+
+import javax.inject.Inject;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.myproject.www.service.UserService;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/memeber/*")
+public class UserController {
+	
+	@Inject
+	private UserService usv;
+	@Inject
+	BCryptPasswordEncoder passwordencoder;
+	
+	
+	
+}

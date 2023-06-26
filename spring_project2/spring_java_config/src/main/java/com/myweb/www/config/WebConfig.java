@@ -1,0 +1,59 @@
+package com.myweb.www.config;
+
+
+import javax.servlet.Filter;
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration.Dynamic;
+import javax.servlet.annotation.MultipartConfig;
+
+import org.springframework.web.filter.CharacterEncodingFilter;
+import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
+
+public class WebConfig extends AbstractAnnotationConfigDispatcherServletInitializer  {
+
+	@Override
+	protected Class<?>[] getRootConfigClasses() {
+		// TODO Auto-generated method stub
+		return new Class[] {RootConfig.class, SecurityConfig.class};
+	}
+
+	@Override
+	protected Class<?>[] getServletConfigClasses() {
+		// TODO Auto-generated method stub
+		return new Class[] {ServletConfiguration.class};
+	}
+
+	@Override
+	protected String[] getServletMappings() {
+		// TODO Auto-generated method stub
+		return new String[] {"/"};
+	}
+
+	@Override
+	protected Filter[] getServletFilters() {
+		//encoding filter 설정
+		CharacterEncodingFilter encodingFilter = new CharacterEncodingFilter();
+		encodingFilter.setEncoding("UTF-8");
+		encodingFilter.setForceEncoding(true); // 나가는 인코딩 설정도 같이 하겠다 옵션
+		
+		return new Filter[] {encodingFilter};
+	}
+
+	@Override
+	protected void customizeRegistration(Dynamic registration) {
+		// 커스터마이징 레지스터 => 파일첨부 업로드 설정할 때 사용
+		// throwExceptionIfNotHandlerFound : 존재하지 않는 api 요청의 응답 커스터마이징
+		registration.setInitParameter("throwExceptionIfNotHandlerFound", "true");
+		
+		//파일 첨부
+		String uploadLocation = "D:\\_myweb\\_java\\fileUpload";
+		int maxFileSize = 1024*1024*2;
+		int maxReqSize = maxFileSize * 5; //파일 요청 최대 크기
+		int fileSizeTHRESHOLD = maxFileSize; // 파일전송시 만들어지는 임시공간
+		MultipartConfigElement multipartConfigElement = 
+				new MultipartConfigElement(uploadLocation, maxFileSize, maxReqSize, fileSizeTHRESHOLD);
+		registration.setMultipartConfig(multipartConfigElement);
+		
+	}
+
+}

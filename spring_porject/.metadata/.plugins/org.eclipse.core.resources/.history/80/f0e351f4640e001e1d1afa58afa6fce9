@@ -1,0 +1,40 @@
+package com.myproject.www.service;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.springframework.stereotype.Service;
+
+import com.myproject.www.domain.BoardVO;
+import com.myproject.www.domain.PagingVO;
+import com.myproject.www.repository.BoardDAO;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Service
+public class BoardServiceImpl implements BoardService {
+	
+	@Inject
+	private BoardDAO bdao;
+
+	@Override
+	public int register(BoardVO bvo) {
+		log.info("board register 서비스!");
+		
+		return bdao.insert(bvo);
+	}
+
+	@Override
+	public List<BoardVO> getlist(PagingVO pvo) {
+		log.info("board list 서비스!");
+		return bdao.selectBoardListPaging(pvo);
+	}
+
+	@Override
+	public int getTotalCount(PagingVO pvo) {
+		log.info("board TCOUNT 서비스!");
+		return bdao.gettotalcount(pvo);
+	}
+}

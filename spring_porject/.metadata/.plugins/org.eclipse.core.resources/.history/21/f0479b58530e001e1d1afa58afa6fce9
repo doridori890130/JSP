@@ -1,0 +1,72 @@
+package com.myproject.www.controller;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.myproject.www.domain.UserVO;
+import com.myproject.www.service.UserService;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/user/*")
+public class UserController {
+	
+	@Inject
+	private UserService usv;
+	
+	@Inject
+	 BCryptPasswordEncoder passwordencoder; 
+	  
+	
+	@GetMapping("/signup")
+	public String index(Model m) {
+		log.info("home 접근완료");
+		return "/user/signup";
+	}
+	
+	@PostMapping("/signup")
+	public String signupPost(Model m, UserVO uvo) {
+		log.info("회원가입 접근완료");
+		log.info(">>>uvo : "+uvo.toString());
+		int isOk = usv.signup(uvo);
+		if(isOk>0) {
+			m.addAttribute("msg_signup",1);
+		}else {
+			m.addAttribute("msg_signup",0);
+		}
+		
+		return "home";
+	}
+	
+	@GetMapping("/login")
+	public String loginGet() {
+		return "/user/login";
+	}
+	
+	public String loginPost(Model m,String id, String pw,HttpServletRequest request){
+		log.info(">>id:"+id+">>pw :"+pw);
+		UserVO isUser = usv.isUser(id,pw);
+		log.info(">>>isuser: "+isUser.toString());
+		
+		if(isUser !=null) {
+			HttpSession ses = request.getSession();
+			ses.setAttribute("ses", isUser);
+			ses.setMaxInactiveInterval(10*60);
+			m.addAttribute("msg_login",1);
+		}else {
+			m.addAttribute("msg_login",0);
+		}
+		return "home";
+	}
+	
+}
